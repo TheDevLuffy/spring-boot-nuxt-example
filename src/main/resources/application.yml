@@ -1,0 +1,26 @@
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+    add-mappings: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect # 이게 뭐라고 ! H2 사용시 주의
+    show-sql: true
+    hibernate:
+      ddl-auto: create # production 에서 절대 금지, 무조건 none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        globally_qouted_identifiers: true
+  datasource:
+    url: jdbc:h2:mem:testdb;
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: 1234
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
