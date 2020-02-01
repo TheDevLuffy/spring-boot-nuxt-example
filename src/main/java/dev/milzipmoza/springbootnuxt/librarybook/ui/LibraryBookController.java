@@ -21,29 +21,28 @@ public class LibraryBookController {
         this.libraryBookCRUDService = libraryBookCRUDService;
     }
 
+    // 도서 등록
     @PostMapping("/books")
     public ResponseEntity createLibraryBook(@RequestBody final LibraryBookRequestDto libraryBookRequestDto) {
         log.debug("library book dto : {}", libraryBookRequestDto);
         return ResponseEntity.ok(libraryBookCRUDService.save(libraryBookRequestDto));
     }
 
+    // 전체 도서 수
     @GetMapping("/books/all")
     public ResponseEntity readLibraryBookTotalCount() {
         return ResponseEntity.ok(libraryBookCRUDService.count());
     }
 
+    // 도서 상세 정보
     @GetMapping("/books/{id}")
     public ResponseEntity readLibraryBook(@PathVariable final Long id) {
         return ResponseEntity.ok(libraryBookCRUDService.findById(id));
     }
 
+    // 도서 목록
     @GetMapping("/books")
     public ResponseEntity readLibraryBooks(@RequestParam final int page, @RequestParam final int number) {
         return ResponseEntity.ok(libraryBookCRUDService.findAll(page, number));
-    }
-
-    @GetMapping("/books/search")
-    public ResponseEntity readLibraryBooksByTitle(@RequestParam final int page, @RequestParam final int number, @RequestParam final String title) {
-        return ResponseEntity.ok(libraryBookCRUDService.findAllByTitleContaining(title, page, number));
     }
 }
