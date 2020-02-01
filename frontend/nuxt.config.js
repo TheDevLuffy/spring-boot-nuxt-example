@@ -45,6 +45,10 @@ module.exports = {
         })
       }
     }
+  },
+
+  generate: {
+    dir: '../src/main/resources/templates'
   }
 }
 
