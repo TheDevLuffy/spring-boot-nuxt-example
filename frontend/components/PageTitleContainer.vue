@@ -3,6 +3,7 @@
     <page-title>
       <slot></slot>
     </page-title>
+    <v-btn to="/" text color="#000000">홈으로</v-btn>
   </margin-box>
 </template>
 
