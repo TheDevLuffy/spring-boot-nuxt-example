@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin({"http://localhost:3000"})
-public class LibraryBookController {
+public class LibraryBookApiController {
 
-    private static final Logger log = LoggerFactory.getLogger(LibraryBookController.class);
+    private static final Logger log = LoggerFactory.getLogger(LibraryBookApiController.class);
 
     private final LibraryBookCRUDService libraryBookCRUDService;
 
     @Autowired
-    public LibraryBookController(final LibraryBookCRUDService libraryBookCRUDService) {
+    public LibraryBookApiController(final LibraryBookCRUDService libraryBookCRUDService) {
         this.libraryBookCRUDService = libraryBookCRUDService;
     }
 
